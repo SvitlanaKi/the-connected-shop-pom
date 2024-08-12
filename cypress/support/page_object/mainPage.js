@@ -8,6 +8,15 @@ class MainPage{
         .should('exist')
         .and(`be.visible`)
 }
+classHeaderIcon () {
+        cy.get(`.Header__Icon`)
+            .should('exist')
+}
+classHeaderLogo(){
+        cy.get(`.Header__LogoImage--transparent`)
+            .should('exist')
+            .and(`be.visible`)
+}
 }
 
 export default MainPage;

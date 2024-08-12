@@ -15,4 +15,10 @@ describe('Main Page Test',()=> {
     it('should have the correct header elements', () => {
         mainPage.classSectionHeader();
     });
+    it (`Header Icon`, () =>{
+        mainPage.classHeaderIcon()
+    });
+it(`Header Logo`, () =>{
+    mainPage.classHeaderLogo()
+});
 });
