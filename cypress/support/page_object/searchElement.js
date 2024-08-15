@@ -24,6 +24,11 @@ classCheckResult(){
              cy.log(`Search results text: ${resultsText}`)
          })
 }
+classclosePopap(){
+     cy.get(`.NewsletterPopup__Close`)
+         .should(`be.visible`)
+         .click();
+}
     }
 export default SearchElement;
 
