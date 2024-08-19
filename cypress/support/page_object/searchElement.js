@@ -14,6 +14,7 @@ classInputSearch(){
      cy.get(`input[type="search"][placeholder="Search..."]`)
          .should(`be.visible`)
          .type('smart lock')
+         .should(`have.value`, `smart lock`);
 }
 classCheckResult(){
      cy.get(`span.Heading.Text--subdued.u-h7`)
