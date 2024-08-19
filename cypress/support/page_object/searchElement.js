@@ -1,4 +1,3 @@
-import Menu from "./menu";
 
 class SearchElement {
      searchInit = `.Header__SecondaryNav > .HorizontalList > :nth-child(2) > .Heading`;
@@ -24,10 +23,16 @@ classCheckResult(){
              cy.log(`Search results text: ${resultsText}`)
          })
 }
-classclosePopap(){
-     cy.get(`.NewsletterPopup__Close`)
-         .should(`be.visible`)
-         .click();
+classInputBad() {
+    cy.get('input[type="search"][placeholder="Search..."]')
+        .should(`be.visible`)
+        .type('hghghgh')
+}
+classBadResult() {
+    cy.get('.Segment__Content').first().within(() => {
+        cy.get('p')
+            .should('contain', 'No results could be found')
+    });
 }
     }
 export default SearchElement;
