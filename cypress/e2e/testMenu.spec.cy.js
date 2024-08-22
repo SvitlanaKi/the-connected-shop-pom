@@ -1,13 +1,11 @@
-
-
 import Menu from "../support/page_object/menu";
-import MainPage from "../support/page_object/mainPage";
+import OpenSite from "../support/page_object/openSite";
 
 describe('Menu  Test',()=> {
     const menu = new Menu()
-    const mainPage = new MainPage()
+    const openSite = new OpenSite()
     beforeEach(() => {
-       mainPage.visit();
+        openSite.visit();
         Cypress.on(`uncaught:exception`,(err,runnable) =>{
             return false;
         });

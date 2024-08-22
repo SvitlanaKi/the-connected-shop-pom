@@ -1,15 +1,13 @@
-
-
 import SearchElement from "../support/page_object/searchElement";
-import MainPage from "../support/page_object/mainPage";
 import Popup from "../support/page_object/popup";
+import OpenSite from "../support/page_object/openSite";
 
 describe('Search Element',()=> {
     const searchElement = new SearchElement()
-    const mainPage = new MainPage()
     const popup = new Popup()
+    const openSite = new OpenSite()
     beforeEach(() => {
-        mainPage.visit();
+        openSite.visit();
         popup.classClosePopup();
         Cypress.on(`uncaught:exception`,(err,runnable) =>{
             return false;

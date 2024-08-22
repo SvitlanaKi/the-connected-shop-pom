@@ -1,16 +1,17 @@
 import MainPage from "../support/page_object/mainPage";
+import OpenSite from "../support/page_object/openSite";
 
 describe('Main Page Test',()=> {
     const mainPage = new MainPage()
+    const openSite = new OpenSite()
     beforeEach(() => {
-        mainPage.visit();
+        openSite.visit();
         Cypress.on(`uncaught:exception`,(err,runnable) =>{
             return false;
         });
     })
     it('Site is Open and Check url',()=>{
-        cy.url()
-            .should('eq','https://theconnectedshop.com/')
+       mainPage.classCheckUrl();
     });
     it('should have the correct header elements', () => {
         mainPage.classSectionHeader();
