@@ -1,34 +1,29 @@
+import MenuMedia from "../support/page_object/menuMedia";
+
 describe (`Check Main Menu`, () => {
-    context(`Desktop Resolution`, () => {
+    const menuMedia = new MenuMedia()
         beforeEach(() => {
-            cy.viewport(1280, 720)
-            cy.visit(`https://theconnectedshop.com/`);
+            menuMedia.visit()
             Cypress.on(`uncaught:exception`,(err,runnable) =>{
                 return false;
             });
         });
         it(`Відображення повного меню`, () => {
-            cy.get('nav.Header__MainNav')
-                .should(`be.visible`)
-                .and(`exist`)
-            cy.get('button.Header__Icon')
-                .should(`not.be.visible`)
+           menuMedia.classShowAllMenu()
+            menuMedia.classCheckMenuDesktop()
         });
-    });
+
     context(`Mobile Resolution`, () => {
         beforeEach(() => {
-            cy.viewport(`iphone-x`)
-            cy.visit(`https://theconnectedshop.com/`);
+            menuMedia.classOpenSiteMobile()
             Cypress.on(`uncaught:exception`,(err,runnable) =>{
                 return false;
             });
         });
         it(`Відображення бургер меню мобільна версія`, () => {
-            cy.get('button.Header__Icon')
-                .should(`be.visible`)
-                .and(`exist`)
-            cy.get('nav.Header__MainNav')
-                .should(`not.be.visible`)
+            menuMedia.classShowBurgerMenu()
+            menuMedia.classCheckMenuMobile()
+            menuMedia.classCollectionMobile()
         });
     });
 })
